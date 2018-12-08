@@ -1,0 +1,23 @@
+<html>
+<body>
+    <h1>Password Manager</h1>
+    {%for password in passwords%}
+        <h2>The password for {{password.website}} is {{password.password}}</h2>
+    {%endfor%}
+
+    {% block content %}
+        <form action="" method="post" novalidate>
+            {{ forms.hidden_tag() }}
+            <p>
+                {{ forms.website.label }}<br>
+                {{ forms.website(size=32) }}
+            </p>
+            <p>
+                {{ forms.password.label }}<br>
+                {{ forms.password(size=32) }}
+            </p>
+            <p>{{ forms.submit() }}</p>
+        </form>
+    {% endblock %}
+</body>
+</html>
